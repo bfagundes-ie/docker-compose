@@ -2,7 +2,7 @@ name: n8n
 services:
   n8n:
     container_name: n8n
-     environment:
+    environment:
       - WEBHOOK_URL=${WEBHOOK_URL}
       - N8N_HOST=${N8N_HOST}
       - N8N_PROTOCOL=${N8N_PROTOCOL}
