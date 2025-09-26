@@ -3,8 +3,8 @@ services:
   n8n:
     container_name: n8n
     environment:
-      - WEBHOOK_URL=${WEBHOOK_URL}
-      - N8N_PROXY_HOPS=2
+      - WEBHOOK_URL=${WEBHOOK_URL}             # Your public URL e.g. https://yourdomain.com
+      - N8N_PROXY_HOPS=1                       # Number of reverse proxies in front of n8n
 #      - N8N_HOST=${N8N_HOST}
 #      - N8N_PROTOCOL=${N8N_PROTOCOL}
 #      - N8N_PORT=${N8N_PORT}
@@ -13,10 +13,10 @@ services:
     deploy:
       resources:
         reservations:
-          memory: "335544320" # 335544320 / 1048576 = 320MB
+          memory: "335544320"                  # 335544320 / 1048576 = 320MB
         limits:
           memory: 512M
-    image: n8nio/n8n:1.113.1
+    image: n8nio/n8n:latest                    # Use latest image version
     labels:
       icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/N8n/icon.png
     ports:
