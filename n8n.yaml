@@ -1,0 +1,45 @@
+name: n8n
+services:
+  n8n:
+    container_name: n8n
+    deploy:
+      resources:
+        reservations:
+          memory: "335544320" # 335544320 / 1048576 = 320MB
+        limits:
+          memory: 512M
+    environment:
+      - N8N_SECURE_COOKIE=false
+      - TZ=Etc/UTC
+    image: n8nio/n8n:1.113.1
+    labels:
+      icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/N8n/icon.png
+    ports:
+      - target: 5678
+        published: "5678"
+        protocol: tcp
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /app/AppData/n8n
+        target: /home/node/.n8n
+    x-casaos:
+      envs:
+        - container: TZ
+          description:
+            en_us: TimeZone
+      ports:
+        - container: "5678"
+          description:
+            en_us: web port
+      volumes:
+        - container: /home/node/.n8n
+          description:
+            en_us: n8n directory.
+    devices: []
+    cap_add: []
+    command: []
+    network_mode: bridge
+    privileged: false
+    hostname: n8n
+    cpu_shares: 90
