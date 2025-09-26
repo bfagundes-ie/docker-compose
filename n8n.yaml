@@ -7,15 +7,14 @@ services:
       - N8N_HOST=${N8N_HOST}
       - N8N_PROTOCOL=${N8N_PROTOCOL}
       - N8N_PORT=${N8N_PORT}
+      - N8N_SECURE_COOKIE=false
+      - TZ=Etc/UTC
     deploy:
       resources:
         reservations:
           memory: "335544320" # 335544320 / 1048576 = 320MB
         limits:
           memory: 512M
-    environment:
-      - N8N_SECURE_COOKIE=false
-      - TZ=Etc/UTC
     image: n8nio/n8n:1.113.1
     labels:
       icon: https://cdn.jsdelivr.net/gh/IceWhaleTech/CasaOS-AppStore@main/Apps/N8n/icon.png
