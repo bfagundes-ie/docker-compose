@@ -4,6 +4,7 @@ services:
     container_name: n8n
     environment:
       - WEBHOOK_URL=${WEBHOOK_URL}
+      - N8N_PROXY_HOPS=2
 #      - N8N_HOST=${N8N_HOST}
 #      - N8N_PROTOCOL=${N8N_PROTOCOL}
 #      - N8N_PORT=${N8N_PORT}
