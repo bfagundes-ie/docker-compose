@@ -9,6 +9,10 @@ services:
       - /app/AppData/mongodb:/data/db
     networks:
       - minha_bridge
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASS}
+
       
 networks:
   minha_bridge:
