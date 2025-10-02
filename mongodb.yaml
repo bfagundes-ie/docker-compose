@@ -7,7 +7,6 @@ services:
       - "27017:27017"
     volumes:
       - /app/AppData/mongodb:/data/db
-    environment:
     networks:
       - minha_bridge
       
