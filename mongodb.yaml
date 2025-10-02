@@ -8,8 +8,6 @@ services:
     volumes:
       - /app/AppData/mongodb:/data/db
     environment:
-      MONGO_INITDB_ROOT_USERNAME: ${ADMIN_USER}
-      MONGO_INITDB_ROOT_PASSWORD: ${ADMIN_PWD}
     networks:
       - minha_bridge
       
